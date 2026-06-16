@@ -16,7 +16,7 @@ QX rule lists in this format have the policy name embedded at the end of each li
 In your QX config (or [filter_remote] / [filter_local] via import), make sure you have matching policies/groups with those names, or batch-replace the policy names to match your setup (e.g. Global -> Proxy, GlobalMedia -> Media).
 
 Example in QX .conf (remote):
-; https://raw.githubusercontent.com/gouzhiyuan/ACL4SSR/master/QuantumultX/Global.list
+; https://raw.githubusercontent.com/blackj-x/ACL4SSR/master/QuantumultX/Global.list
 
 For best results combine with your existing [policy] groups for US / JP / HK / SG nodes, and use "server_check_url" or "resource_parser" as usual.
 
