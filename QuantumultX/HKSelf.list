@@ -1,0 +1,11 @@
+# NAME: HKSelf.list (personal Self list for QX)
+# SOURCE: Converted from Clash/HKSelf.list
+# NOTE: Personal supplement lists (hand curated domains the maintainer routes specially, e.g. certain AI/exchange sites).
+#       Keep the Clash/ version as the single source of truth. Re-run this generator after editing Clash/ lists.
+# POLICY: Lines end with ,HK直连 . If your QX policies use different names (e.g. with flags or English names),
+#         batch-replace in the generated file or edit the policy argument in this generator script.
+# SYNC: MANUAL (not from ios_rule_script)
+
+HOST-SUFFIX,okex.com,HK直连
+HOST-SUFFIX,okx.com,HK直连
+HOST-SUFFIX,okk.tw,HK直连
