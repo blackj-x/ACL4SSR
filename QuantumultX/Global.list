@@ -1,6 +1,7 @@
 # NAME: Global (QX format, Aggregated from ios_rule_script)
 # SOURCE: https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/QuantumultX/Global
 # NOTE: Lines end with ,PolicyName (e.g. ,Global). Adjust to your QX policy names.
+#       Some domains excluded via Tool/global_blacklist.txt (personal Self list overrides).
 # SYNC: 2026-06-16
 
 # NAME: Global
@@ -305,7 +306,6 @@ HOST,news-edge.apple.com,Global
 HOST,news-events.apple.com,Global
 HOST,notary-submissions-prod.s3-accelerate.amazonaws.com,Global
 HOST,notary-submissions-prod.s3.us-west-2.amazonaws.com,Global
-HOST,notebooklm-pa.googleapis.com,Global
 HOST,notebooklm.googleapis.com,Global
 HOST,notify.ppy.sh,Global
 HOST,ntdfreemobile-tgc.cdn.hinet.net,Global

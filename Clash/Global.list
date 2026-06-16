@@ -1,6 +1,7 @@
 # NAME: Global (Aggregated from ios_rule_script for ACL4SSR self)
 # SOURCE: https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash/Global
 # NOTE: Updated periodically from upstream for fresher rules. Review diffs before use.
+#       Some domains excluded via Tool/global_blacklist.txt (personal Self list overrides).
 # SYNC: 2026-06-16
 
 # NAME: Global

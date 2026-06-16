@@ -10,6 +10,24 @@ set -e
 BASE="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule"
 DATE=$(date '+%Y-%m-%d')
 
+# Apply global blacklist (exclusions) to a downloaded tmp file.
+# Used to prevent certain domains from being re-introduced by upstream sync
+# so they can be managed manually via personal Self lists (e.g. for JP直连 etc.).
+apply_global_blacklist() {
+  local tmpfile="$1"
+  if [[ -f Tool/global_blacklist.txt ]]; then
+    # Extract non-comment, non-blank patterns
+    grep -v '^#' Tool/global_blacklist.txt 2>/dev/null | grep -v '^[[:space:]]*$' > /tmp/blacklist.patterns || true
+    if [[ -s /tmp/blacklist.patterns ]]; then
+      # Remove lines containing any of the blacklist strings (fixed-string match)
+      # This works for both Clash (DOMAIN,...) and QX (HOST,...) formats.
+      grep -v -F -f /tmp/blacklist.patterns "$tmpfile" > "${tmpfile}.filtered" 2>/dev/null || cp "$tmpfile" "${tmpfile}.filtered"
+      mv "${tmpfile}.filtered" "$tmpfile"
+    fi
+    rm -f /tmp/blacklist.patterns 2>/dev/null || true
+  fi
+}
+
 echo "==> Syncing key aggregates from ios_rule_script ($DATE)"
 
 # Clash
@@ -17,9 +35,11 @@ mkdir -p Clash
 
 echo "-> Global.list"
 curl -sL "$BASE/Clash/Global/Global.list" > /tmp/Global.list
+apply_global_blacklist /tmp/Global.list
 echo "# NAME: Global (Aggregated from ios_rule_script for ACL4SSR self)
 # SOURCE: https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash/Global
 # NOTE: Updated periodically from upstream for fresher rules. Review diffs before use.
+#       Some domains excluded via Tool/global_blacklist.txt (see script for details).
 # SYNC: $DATE
 " | cat - /tmp/Global.list > Clash/Global.list
 
@@ -62,9 +82,11 @@ mkdir -p QuantumultX
 
 echo "-> QX Global.list"
 curl -sL "$BASE/QuantumultX/Global/Global.list" > /tmp/qxglobal.list
+apply_global_blacklist /tmp/qxglobal.list
 echo "# NAME: Global (QX format, Aggregated from ios_rule_script)
 # SOURCE: https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/QuantumultX/Global
 # NOTE: Lines end with ,PolicyName (e.g. ,Global). Adjust to your QX policy names.
+#       Some domains excluded via Tool/global_blacklist.txt (see script for details).
 # SYNC: $DATE
 " | cat - /tmp/qxglobal.list > QuantumultX/Global.list
 

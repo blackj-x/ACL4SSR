@@ -1,0 +1,12 @@
+# Global list blacklist / exclusion list
+# Domains or substrings listed here (one per line) will be removed
+# from the synced Global.list (Clash and QuantumultX versions)
+# during sync_from_ios_rule_script.sh runs.
+#
+# Purpose: Allow manual control via personal Self lists (e.g. route specific
+# domains via US直连 / HK直连 / JP直连 instead of the broad Global policy).
+#
+# Lines starting with # are ignored.
+# The filter removes any line containing the string (HOST or HOST-SUFFIX etc.).
+
+notebooklm-pa.googleapis.com
