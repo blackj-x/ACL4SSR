@@ -1,2 +1,9 @@
+# US 直连：优先于 国外媒体 / 节点选择（见 ACL4SSR_Online_Full_self.ini 顺序）
+# Claude / Anthropic 全家桶收口到这里，避免多 list 重复、策略打架
 DOMAIN-SUFFIX,claude.ai
+DOMAIN-SUFFIX,claude.com
+DOMAIN-SUFFIX,claudeusercontent.com
+DOMAIN-SUFFIX,claudemcpclient.com
+DOMAIN-SUFFIX,claudemcpcontent.com
+DOMAIN-SUFFIX,anthropic.com
 DOMAIN-SUFFIX,app.vela.exchange
