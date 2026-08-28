@@ -14,7 +14,7 @@
 # IP-CIDR6: 6
 # PROCESS-NAME: 3
 # TOTAL: 2265
-# NOTE: Claude/Anthropic 域名已移至 USSelfv1.list（🇺🇲 US直连），此处不再重复，避免 DOMAIN-KEYWORD,anthropic 误伤 anthropology.*
+# NOTE: Claude/Anthropic 主站已移至 JPSelf.list（🇯🇵 JP直连），此处不再重复，避免 DOMAIN-KEYWORD,anthropic 误伤 anthropology.*
 DOMAIN,ai.google.dev
 DOMAIN,aistudio.google.com
 DOMAIN,akmcdnoversea-tw.inter.ptqy.gitv.tv
